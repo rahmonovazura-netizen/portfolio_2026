@@ -1,0 +1,304 @@
+/* ========================================================
+   MODERN PORTFOLIO ANIMATIONS & EFFECTS (ANIMATIONS.CSS)
+   ======================================================== */
+
+/* 1. Global Silliq Fon va Rang O'tishlari (Background Morph) */
+html, body {
+  transition: background-color 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.4s ease,
+              border-color 0.4s ease;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* 2. Scroll Progress Bar (Sahifa tepasidagi indikator) */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  z-index: 99999;
+  box-shadow: 0 0 12px var(--primary-glow);
+  transition: width 0.1s ease-out;
+}
+
+/* 3. Preloader & Sahifaga Kirish Animatsiyasi */
+#site-preloader {
+  position: fixed;
+  inset: 0;
+  background: #070a12;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1),
+              transform 0.9s cubic-bezier(0.77, 0, 0.175, 1),
+              visibility 0.8s;
+}
+
+#site-preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%);
+}
+
+/* Reload animatsiyasi chaqirilganda */
+#site-preloader.reloading {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.preloader-spinner {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.8rem;
+}
+
+.spinner-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid transparent;
+}
+
+.spinner-ring.outer {
+  border-top-color: var(--primary);
+  border-right-color: var(--secondary);
+  animation: spinClockwise 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+.spinner-ring.inner {
+  inset: 10px;
+  border-bottom-color: var(--accent);
+  animation: spinCounter 0.9s linear infinite;
+}
+
+.spinner-core {
+  font-size: 1.8rem;
+  color: var(--primary);
+  animation: pulseCore 1.5s ease-in-out infinite alternate;
+}
+
+.preloader-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.preloader-title {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+
+.preloader-bar-bg {
+  width: 220px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.preloader-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  border-radius: 99px;
+  box-shadow: 0 0 10px var(--primary-glow);
+  transition: width 0.05s ease-out;
+}
+
+.preloader-percent {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+@keyframes spinClockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spinCounter {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes pulseCore {
+  0% { transform: scale(0.85); opacity: 0.7; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+/* 4. Sahifaga kirishdagi silliq ko'tarilish (Page Stagger Reveal) */
+.page-loaded main, 
+.page-loaded header {
+  animation: pageEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 5. Zamonaviy Neon Glow Cursor */
+#cursor-dot, #cursor-ring {
+  pointer-events: none;
+  position: fixed;
+  border-radius: 50%;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
+
+#cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent), 0 0 20px var(--primary);
+}
+
+#cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 2px solid rgba(var(--primary-rgb), 0.6);
+  box-shadow: 0 0 15px var(--primary-glow);
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+#cursor-ring.cursor-hover {
+  width: 55px;
+  height: 55px;
+  background: rgba(var(--primary-rgb), 0.15);
+  border-color: var(--secondary);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  #cursor-dot, #cursor-ring { display: none !important; }
+}
+
+/* 6. Dinamik Suzuvchi Fon Sharlari (Ambient Orbs) */
+.ambient-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatOrb 20s ease-in-out infinite alternate;
+}
+
+.orb-1 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, var(--primary), #3b82f6);
+  top: -100px;
+  left: -100px;
+}
+
+.orb-2 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, var(--secondary), #8b5cf6);
+  bottom: 8%;
+  right: -100px;
+  animation-duration: 25s;
+  animation-delay: -6s;
+}
+
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--accent), #06b6d4);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-duration: 18s;
+  animation-delay: -3s;
+  opacity: 0.2;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(70px, 90px) scale(1.15); }
+  100% { transform: translate(-50px, 50px) scale(0.92); }
+}
+
+/* 7. Scroll Reveal Animatsiyasi */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 8. 3D Tilt Kartochka Effekti */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out, box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.tilt-card:hover {
+  box-shadow: 0 20px 40px -15px var(--primary-glow);
+}
+
+/* 9. Orqa fon o'zgarganda to'lqin tarqalishi (Theme Ripple) */
+.theme-ripple {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99990;
+  transform: translate(-50%, -50%) scale(0);
+  animation: rippleExpand 0.85s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes rippleExpand {
+  to {
+    transform: translate(-50%, -50%) scale(4.5);
+    opacity: 0;
+  }
+}
+
+/* 10. Typewriter Cursor Blink */
+.type-text::after {
+  content: '|';
+  color: var(--primary);
+  animation: blink 0.8s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
