@@ -134,6 +134,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Auto-detect and sync active nav-link based on current file/URL
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+      link.classList.add('active');
+    }
+  });
+
   // Header scroll sticky effect & Scroll progress bar
   const header = document.querySelector('.site-header');
   const progressBar = document.getElementById('scroll-progress');
