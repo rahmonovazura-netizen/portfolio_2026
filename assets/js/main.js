@@ -110,13 +110,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
   if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navMenu.classList.toggle('open');
+      menuToggle.classList.toggle('active', isOpen);
       window.AudioSynth.playTone(480, 0.05, 'triangle');
     });
+
     // Close on link click
     navMenu.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => navMenu.classList.remove('open'));
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        menuToggle.classList.remove('active');
+      });
+    });
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        navMenu.classList.remove('open');
+        menuToggle.classList.remove('active');
+      }
     });
   }
 

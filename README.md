@@ -12,7 +12,7 @@ Har bir sahifa alohida HTML fayl qilib ajratilgan va har birida **aniq 6 tadan b
    - 1-section: Hero & 3D Badge + Dynamic Pitch
    - 2-section: Jonli hisoblagichlar & Statistika (Stat Counters)
    - 3-section: Asosiy yo'nalishlar (Frontend, Backend, 3D WebGL, Mobile-First)
-   - 4-section: Eng sara loyihalar vitrinasi (Masterpiece Showcase)
+   - 4-section: Haqiqiy jonli loyihalar (Muzaffar Online Shop & O'quv Kursi Delta)
    - 5-section: Texnologiyalar ekotizimi (React, Next.js, TypeScript, Node.js...)
    - 6-section: Call-To-Action & Tezkor hamkorlik bloki
 2. **`about.html` (Men haqimda)**:
@@ -30,9 +30,9 @@ Har bir sahifa alohida HTML fayl qilib ajratilgan va har birida **aniq 6 tadan b
    - 5-section: Mijozlar uchun professional xizmatlar paketlari
    - 6-section: 6 bosqichli ish jarayoni (Tahlildan tortib Deploygacha)
 4. **`projects.html` (Loyihalar va Portfolio)**:
-   - 1-section: Jonli qidiruv & Kategoriyalar filtri (Fullstack, Frontend, AI)
-   - 2-section: Flagship B2B keys (ApexPay - ko'rsatkichlar & arxitektura)
-   - 3-section: 6 ta to'liq interaktiv loyihalar kartalari
+   - 1-section: Jonli qidiruv & Kategoriyalar filtri (E-Commerce, EduTech)
+   - 2-section: Flagship keys (Muzaffar Online Shop - Jonli Vercel loyihasi)
+   - 3-section: Faqat sizning 2 ta jonli loyihangiz (Muzaffar Online Shop & O'quv Kursi Delta)
    - 4-section: Open source & Ijodiy tajribalar
    - 5-section: Mijozlar fikrlari & Tasdiqlangan natijalar
    - 6-section: **Interaktiv Byudjet & Muddat Kalkulyatori** (Real vaqtda narx va kun hisoblaydi!)
