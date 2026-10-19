@@ -1,0 +1,260 @@
+/* ===================================================
+   BACKGROUND ANIMATION SYSTEM & MATCHED ELEMENTS
+   Modes: 
+   1. neural-mesh (Cosmic Constellation & Neural Particles)
+   2. cyber-matrix (Cyberpunk Perspective Grid & Matrix Rain)
+   3. aurora-liquid (Fluid Chromatic Aurora & Liquid Spheres)
+   =================================================== */
+
+#background-stage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+}
+
+#bg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Container for HTML floating elements matching current background */
+#matched-elements-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ===================================================
+   1. NEURAL MESH MATCHED ELEMENTS
+   =================================================== */
+.theme-neural-mesh {
+  --theme-primary: #6366f1;
+  --theme-secondary: #06b6d4;
+  --theme-ambient-glow: rgba(99, 102, 241, 0.15);
+}
+
+.neural-node-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(99, 102, 241, 0.25);
+  pointer-events: none;
+  animation: spinSlow 30s linear infinite;
+}
+
+.neural-node-ring::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--secondary);
+  box-shadow: 0 0 12px var(--secondary);
+}
+
+.neural-data-chip {
+  position: absolute;
+  background: rgba(14, 20, 36, 0.65);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: #a5b4fc;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+  animation: floatDrift 8s ease-in-out infinite alternate;
+}
+
+.neural-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+  animation: pulseBeacon 2s infinite ease-in-out;
+}
+
+/* ===================================================
+   2. CYBER MATRIX MATCHED ELEMENTS
+   =================================================== */
+.theme-cyber-matrix {
+  --theme-primary: #10b981;
+  --theme-secondary: #00ffcc;
+  --theme-ambient-glow: rgba(16, 185, 129, 0.18);
+}
+
+.cyber-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.6), transparent);
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+  opacity: 0.7;
+  animation: scanlineSweep 7s linear infinite;
+}
+
+.cyber-hud-badge {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: #00ffcc;
+  background: rgba(4, 18, 14, 0.75);
+  border: 1px solid rgba(0, 255, 204, 0.4);
+  padding: 8px 14px;
+  border-radius: 4px;
+  box-shadow: 0 0 18px rgba(0, 255, 204, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  animation: cyberFloat 6s ease-in-out infinite alternate;
+}
+
+.cyber-reticle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(0, 255, 204, 0.35);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: reticleRotate 12s linear infinite;
+}
+
+.cyber-reticle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -6px;
+  right: -6px;
+  height: 1px;
+  background: rgba(0, 255, 204, 0.6);
+}
+
+.cyber-reticle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -6px;
+  bottom: -6px;
+  width: 1px;
+  background: rgba(0, 255, 204, 0.6);
+}
+
+/* ===================================================
+   3. AURORA LIQUID MATCHED ELEMENTS
+   =================================================== */
+.theme-aurora-liquid {
+  --theme-primary: #ec4899;
+  --theme-secondary: #8b5cf6;
+  --theme-ambient-glow: rgba(236, 72, 153, 0.2);
+}
+
+.aurora-glass-prism {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px);
+  border-radius: 28px;
+  box-shadow: 0 8px 32px rgba(236, 72, 153, 0.25), inset 0 0 15px rgba(255, 255, 255, 0.1);
+  transform: rotate(15deg);
+  animation: prismFloat 9s ease-in-out infinite alternate;
+}
+
+.aurora-liquid-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.45;
+  pointer-events: none;
+  animation: orbMorph 14s ease-in-out infinite alternate;
+}
+
+.aurora-crystal-tag {
+  position: absolute;
+  padding: 8px 16px;
+  background: rgba(30, 15, 45, 0.6);
+  border: 1px solid rgba(236, 72, 153, 0.4);
+  border-radius: 30px;
+  color: #f472b6;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: floatDrift 7s ease-in-out infinite alternate;
+}
+
+/* ===================================================
+   ANIMATION KEYFRAMES
+   =================================================== */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes reticleRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseBeacon {
+  0%, 100% { opacity: 0.3; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+@keyframes floatDrift {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-24px) rotate(4deg); }
+}
+
+@keyframes cyberFloat {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-16px) translateX(8px); }
+  100% { transform: translateY(8px) translateX(-6px); }
+}
+
+@keyframes scanlineSweep {
+  0% { top: -10%; opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { top: 110%; opacity: 0; }
+}
+
+@keyframes prismFloat {
+  0% { transform: translateY(0px) rotate(15deg) scale(1); }
+  50% { transform: translateY(-25px) rotate(22deg) scale(1.05); }
+  100% { transform: translateY(10px) rotate(10deg) scale(0.98); }
+}
+
+@keyframes orbMorph {
+  0% { border-radius: 50% 50% 50% 50%; transform: scale(1) translate(0, 0); }
+  33% { border-radius: 40% 60% 70% 30% / 50% 60% 30% 60%; transform: scale(1.15) translate(30px, -20px); }
+  66% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: scale(0.9) translate(-25px, 25px); }
+  100% { border-radius: 50% 50% 50% 50%; transform: scale(1) translate(0, 0); }
+}

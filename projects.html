@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loyihalar & Portfolio | Muzaffar - Fullstack & Creative Engineer</title>
+  <meta name="description" content="Muzaffar tomonidan yaratilgan eng so'nggi muvaffaqiyatli loyihalar, keyslar va interaktiv kalkulyator.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/backgrounds.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body class="theme-neural-mesh">
+  <div id="scroll-progress"></div>
+  <div id="cursor-glow"></div>
+
+  <div id="background-stage">
+    <canvas id="bg-canvas"></canvas>
+    <div id="matched-elements-layer"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">M</div>
+        <div class="logo-text">Muzaffar<span>.dev</span></div>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Bosh sahifa</a></li>
+        <li><a href="about.html" class="nav-link">Men haqimda</a></li>
+        <li><a href="skills.html" class="nav-link">Ko'nikmalar</a></li>
+        <li><a href="projects.html" class="nav-link active">Loyihalar</a></li>
+        <li><a href="experience.html" class="nav-link">Tajriba</a></li>
+        <li><a href="contact.html" class="nav-link">Aloqa</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="sound-toggle-btn" title="Ovozni yoqish / o'chirish">🔊</button>
+        <a href="contact.html" class="btn btn-primary" style="padding: 9px 20px; font-size: 0.9rem;">Hamkorlik</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menyu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       SECTION 1: PROJECTS HERO & DYNAMIC SEARCH
+       ========================================== -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero-breadcrumbs reveal-fade-down">
+        <a href="index.html">Bosh sahifa</a> <span>/</span> <span>Loyihalar</span>
+      </div>
+      <span class="section-tag reveal-fade-up">Portfolio Kolleksiyasi</span>
+      <h1 class="section-title reveal-fade-up delay-1">Yaratilgan Mahsulotlar & Keyslar</h1>
+      <p class="section-desc reveal-fade-up delay-2">
+        Haqiqiy biznes foydalanuvchilariga xizmat qilayotgan yuqori tezlikdagi, qulay va interaktiv platformalar.
+      </p>
+
+      <!-- Dynamic Search & Filter Dock -->
+      <div class="glass-card reveal-fade-up delay-3" style="max-width: 860px; margin: 40px auto 0 auto; padding: 20px;">
+        <div style="display: flex; gap: 14px; margin-bottom: 16px; flex-wrap: wrap;">
+          <input type="text" id="project-search-input" placeholder="🔍 Loyiha nomi, texnologiya (React, Node, AI)..." 
+                 style="flex: 1; min-width: 260px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); border-radius: 12px; padding: 12px 18px; color: #fff; font-family: inherit; font-size: 0.95rem; outline: none;">
+          <div style="display: flex; align-items: center; gap: 6px; padding: 0 16px; background: rgba(255,255,255,0.04); border-radius: 12px; border: 1px solid var(--border-glass); font-family: var(--font-mono); font-size: 0.85rem; color: var(--secondary);">
+            <span>Topildi:</span> <strong id="visible-projects-count">6</strong> ta
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="filter-btn bg-mode-btn active" data-filter="all">Barchasi</button>
+          <button class="filter-btn bg-mode-btn" data-filter="fullstack">Fullstack Tizimlar</button>
+          <button class="filter-btn bg-mode-btn" data-filter="frontend">Frontend & 3D</button>
+          <button class="filter-btn bg-mode-btn" data-filter="ai">AI & Fintech</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 2: FLAGSHIP ENTERPRISE CASE STUDIES
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal-fade-up">
+        <span class="section-tag">Asosiy Keys</span>
+        <h2 class="section-title">Eng Katta Flagship Loyiham</h2>
+        <p class="section-desc">Arxitektura va biznes natijalari bo'yicha eng yuqori baholangan yechim.</p>
+      </div>
+
+      <div class="glass-card glow-border reveal-scale" style="padding: 48px; border-radius: 28px;">
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center;" class="case-study-grid">
+          <div>
+            <div style="display: flex; gap: 8px; margin-bottom: 14px;">
+              <span class="section-tag" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">FinTech & WebSockets</span>
+              <span class="section-tag">Production Ready</span>
+            </div>
+            <h3 style="font-size: 2rem; font-weight: 800; margin-bottom: 16px; line-height: 1.2;">
+              ApexPay - Markazlashtirilgan Xalqaro B2B To'lov Platformasi
+            </h3>
+            <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 24px;">
+              Ushbu platforma orqali kompaniyalar 15 dan ortiq valyutalarda soniyalik to'lovlarni amalga oshiradi. PostgreSQL va Redis yordamida soniyasiga 4,000+ tranzaksiyaga bardosh bera oladigan qilib loyihalashtirilgan.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px;">
+              <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 12px; border: 1px solid var(--border-glass); text-align: center;">
+                <div style="font-weight: 800; font-size: 1.4rem; color: var(--secondary);">99.99%</div>
+                <div style="font-size: 0.75rem; color: var(--text-dim);">Uptime Barqarorlik</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 12px; border: 1px solid var(--border-glass); text-align: center;">
+                <div style="font-weight: 800; font-size: 1.4rem; color: var(--accent);">&lt; 80ms</div>
+                <div style="font-size: 0.75rem; color: var(--text-dim);">API Tezligi</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 12px; border: 1px solid var(--border-glass); text-align: center;">
+                <div style="font-weight: 800; font-size: 1.4rem; color: var(--success);">$2.5M+</div>
+                <div style="font-size: 0.75rem; color: var(--text-dim);">Aylanma Hajmi</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+              <a href="contact.html" class="btn btn-primary">Keys Tafsiloti & Demo ↗</a>
+              <button class="btn btn-outline" data-copy-text="ApexPay: Next.js 14, Node.js NestJS, Redis, PostgreSQL, Stripe">
+                📋 Stackni nusxalash
+              </button>
+            </div>
+          </div>
+
+          <div style="background: #090c18; border: 1px solid var(--border-glass); border-radius: 20px; padding: 24px; text-align: center;">
+            <div style="font-size: 5rem; margin-bottom: 16px;">💳</div>
+            <h4 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">ApexPay Dashboard v3</h4>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 20px;">Micro-frontend arxitekturasi va biometrik 2FA himoyasi.</p>
+            <div style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
+              <span class="section-tag" style="font-size: 0.72rem;">Next.js 14</span>
+              <span class="section-tag" style="font-size: 0.72rem;">NestJS</span>
+              <span class="section-tag" style="font-size: 0.72rem;">PostgreSQL</span>
+              <span class="section-tag" style="font-size: 0.72rem;">Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 3: COMPREHENSIVE GRID PORTFOLIO
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal-fade-up">
+        <span class="section-tag">Loyihalar Katalogi</span>
+        <h2 class="section-title">Barcha Loyihalar</h2>
+        <p class="section-desc">Kategoriyalar bo'yicha saralangan va o'z ichiga jonli funksiyalarni olgan ishlar.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;" id="projects-grid-container">
+        
+        <!-- Project 1 -->
+        <div class="glass-card tilt-card project-item reveal-fade-up delay-1" data-category="fullstack" data-tags="nextjs postgresql ecommerce stripe" style="padding: 0; overflow: hidden;">
+          <div style="height: 200px; background: linear-gradient(135deg, #1e1b4b, #4338ca); display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+            🛒
+          </div>
+          <div style="padding: 26px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span class="section-tag" style="padding: 3px 10px; font-size: 0.72rem;">Fullstack</span>
+              <span style="font-size: 0.8rem; color: #10b981;">● Jonli</span>
+            </div>
+            <h3 class="project-title" style="font-size: 1.3rem; font-weight: 700; margin-bottom: 10px;">ElectroBazaar Marketplace</h3>
+            <p class="project-desc" style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px;">
+              Elektronika vositalari uchun ko'p sotuvchili onlayn bozor. Payme va Click to'lovlari, avtomatik kvitansiya generatsiyasi.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--secondary);">Next.js • Prisma • Tailwind</span>
+              <a href="contact.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.8rem;">Bog'lanish</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="glass-card tilt-card project-item reveal-fade-up delay-2" data-category="frontend" data-tags="threejs react gsap webgl 3d" style="padding: 0; overflow: hidden;">
+          <div style="height: 200px; background: linear-gradient(135deg, #164e63, #0891b2); display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+            🪐
+          </div>
+          <div style="padding: 26px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span class="section-tag" style="padding: 3px 10px; font-size: 0.72rem;">Frontend & 3D</span>
+              <span style="font-size: 0.8rem; color: #10b981;">● Jonli</span>
+            </div>
+            <h3 class="project-title" style="font-size: 1.3rem; font-weight: 700; margin-bottom: 10px;">CosmoMeta 3D Showroom</h3>
+            <p class="project-desc" style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px;">
+              Brauzerda 3D avtomobil va mahsulotlarni real vaqt rejimida 360 darajada aylantirib, rangini o'zgartirish imkonini beruvchi WebGL sahnasi.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--secondary);">Three.js • GSAP • Canvas</span>
+              <a href="contact.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.8rem;">Bog'lanish</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="glass-card tilt-card project-item reveal-fade-up delay-3" data-category="ai" data-tags="ai openai python fastApi analytics" style="padding: 0; overflow: hidden;">
+          <div style="height: 200px; background: linear-gradient(135deg, #4a044e, #86198f); display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+            🧠
+          </div>
+          <div style="padding: 26px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span class="section-tag" style="padding: 3px 10px; font-size: 0.72rem;">AI & Analytics</span>
+              <span style="font-size: 0.8rem; color: #10b981;">● Jonli</span>
+            </div>
+            <h3 class="project-title" style="font-size: 1.3rem; font-weight: 700; margin-bottom: 10px;">DocuMind AI Assistent</h3>
+            <p class="project-desc" style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px;">
+              Yuzlab sahifali PDF va shartnomalarni yuklab, ularga oid savollarga soniyalar ichida javob beruvchi RAG (Retrieval Augmented Generation) tizimi.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--secondary);">OpenAI API • FastAPI • React</span>
+              <a href="contact.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.8rem;">Bog'lanish</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="glass-card tilt-card project-item reveal-fade-up delay-4" data-category="fullstack" data-tags="crm logistics nodejs vue" style="padding: 0; overflow: hidden;">
+          <div style="height: 200px; background: linear-gradient(135deg, #14532d, #15803d); display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+            🚚
+          </div>
+          <div style="padding: 26px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span class="section-tag" style="padding: 3px 10px; font-size: 0.72rem;">Fullstack</span>
+              <span style="font-size: 0.8rem; color: #10b981;">● Jonli</span>
+            </div>
+            <h3 class="project-title" style="font-size: 1.3rem; font-weight: 700; margin-bottom: 10px;">CargoTrack Logistika CRM</h3>
+            <p class="project-desc" style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px;">
+              Yuklarni real-vaqt xaritada kuzatish, haydovchilar bilan chat va avtomatik yo'l varaqalari yaratish moduli.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--secondary);">Node.js • Leaflet • MongoDB</span>
+              <a href="contact.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.8rem;">Bog'lanish</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="glass-card tilt-card project-item reveal-fade-up delay-5" data-category="frontend" data-tags="landing portfolio animations ui" style="padding: 0; overflow: hidden;">
+          <div style="height: 200px; background: linear-gradient(135deg, #3730a3, #4f46e5); display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+            ⚡
+          </div>
+          <div style="padding: 26px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span class="section-tag" style="padding: 3px 10px; font-size: 0.72rem;">Frontend</span>
+              <span style="font-size: 0.8rem; color: #10b981;">● Jonli</span>
+            </div>
+            <h3 class="project-title" style="font-size: 1.3rem; font-weight: 700; margin-bottom: 10px;">CyberSaaS Landing UI</h3>
+            <p class="project-desc" style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px;">
+              Cyberpunk estetikasiga ega, 3D interaktiv komponentlar va audio effektlar bilan jihozlangan yuqori konversiyali lending sahifa.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--secondary);">HTML5 • Web Audio • Canvas</span>
+              <a href="contact.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.8rem;">Bog'lanish</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="glass-card tilt-card project-item reveal-fade-up delay-6" data-category="ai" data-tags="fintech crypto web3 nodejs" style="padding: 0; overflow: hidden;">
+          <div style="height: 200px; background: linear-gradient(135deg, #701a75, #a21caf); display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+            📊
+          </div>
+          <div style="padding: 26px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span class="section-tag" style="padding: 3px 10px; font-size: 0.72rem;">FinTech & AI</span>
+              <span style="font-size: 0.8rem; color: #10b981;">● Jonli</span>
+            </div>
+            <h3 class="project-title" style="font-size: 1.3rem; font-weight: 700; margin-bottom: 10px;">CryptoScope Analytics</h3>
+            <p class="project-desc" style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px;">
+              Kriptovalyuta bozori signallari, trendlarni tahlil qiluvchi neyrotarmoq va avtomatlashtirilgan ogohlantirishlar tizimi.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--secondary);">WebSockets • React • Chart.js</span>
+              <a href="contact.html" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.8rem;">Bog'lanish</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 4: OPEN SOURCE & EXPERIMENTS
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal-fade-up">
+        <span class="section-tag">Eksperimentlar</span>
+        <h2 class="section-title">Open Source & Ijodiy Kodlar</h2>
+        <p class="section-desc">Kreativ dasturlash, kutubxonalar va tajriba laboratoriyasi namunalari.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+        
+        <div class="glass-card reveal-slide-left delay-1">
+          <div style="font-size: 2.2rem; margin-bottom: 12px;">🎵</div>
+          <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;">Web Audio Synth Engine</h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 14px;">
+            Hech qanday og'ir mp3 fayllarsiz, toza matematik ossilyatorlar yordamida interfeys tovushlarini yaratuvchi yengil skript.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--secondary);">GitHub: 240+ Stars ⭐</div>
+        </div>
+
+        <div class="glass-card reveal-fade-up delay-2">
+          <div style="font-size: 2.2rem; margin-bottom: 12px;">🌌</div>
+          <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;">Canvas Particle Mesh 2.0</h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 14px;">
+            Kursorga moslashuvchi va 60fps tezlikda ishlovchi zarrachalar to'ri kutubxonasi. Ushbu portfolioda ham qo'llangan.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--secondary);">GitHub: 180+ Stars ⭐</div>
+        </div>
+
+        <div class="glass-card reveal-slide-right delay-3">
+          <div style="font-size: 2.2rem; margin-bottom: 12px;">⚡</div>
+          <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;">Next.js Enterprise Starter</h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 14px;">
+            Prisma, Tailwind, NextAuth va Docker bilan oldindan sozlangan to'liq arxitektura shabloni.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--secondary);">GitHub: 410+ Stars ⭐</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 5: CLIENT REVIEWS & METRICS
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal-fade-up">
+        <span class="section-tag">Ishonch & Natija</span>
+        <h2 class="section-title">Mijozlar Fikrlari & Biznes Ta'siri</h2>
+        <p class="section-desc">Muvaffaqiyatli topshirilgan loyihalar ortidagi haqiqiy sharhlar.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px;">
+        
+        <div class="glass-card reveal-scale delay-1">
+          <div style="color: #f59e0b; font-size: 1.2rem; margin-bottom: 14px;">★★★★★</div>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+            "Muzaffar bizning FinTech platformamizni kutilganidan ancha erta va yuqori darajada topshirdi. Sayt tezligi 3 barobar oshdi, foydalanuvchilar konversiyasi 40% ga ko'paydi!"
+          </p>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 700;">A</div>
+            <div>
+              <div style="font-weight: 700;">Akmal Rahimov</div>
+              <div style="color: var(--text-dim); font-size: 0.8rem;">FinTech Startup Asoschisi</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card reveal-scale delay-2">
+          <div style="color: #f59e0b; font-size: 1.2rem; margin-bottom: 14px;">★★★★★</div>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+            "Dizayn, 3D animatsiyalar va texnik sifat juda yuqori darajada. Hamkorlik davomida har bir detalga jiddiy e'tibor qaratildi. Keyingi loyihalarda ham faqat u bilan ishlaymiz."
+          </p>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--secondary); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #000;">D</div>
+            <div>
+              <div style="font-weight: 700;">Dilnoza Karimova</div>
+              <div style="color: var(--text-dim); font-size: 0.8rem;">E-Commerce Direktori</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 6: INTERACTIVE BUDGET & TIMELINE ESTIMATOR
+       ========================================== -->
+  <section class="section" style="padding-bottom: 120px;">
+    <div class="container">
+      <div class="glass-card glow-border reveal-scale" style="padding: 50px 40px; border-radius: 32px; max-width: 900px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 36px;">
+          <span class="section-tag">Interaktiv Kalkulyator</span>
+          <h2 style="font-size: 2.2rem; font-weight: 800; margin: 12px 0;">Loyiha Byudjeti va Muddatini Hisoblang</h2>
+          <p style="color: var(--text-muted); font-size: 1rem;">O'zingizga kerakli funksiyalarni tanlang va taxminiy qiymatni onlayn bilib oling.</p>
+        </div>
+
+        <form id="budget-estimator-form">
+          <!-- Scope Selection -->
+          <div style="margin-bottom: 30px;">
+            <label style="display: block; font-weight: 700; margin-bottom: 14px; font-size: 1.05rem;">1. Loyiha hajmi va turi:</label>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+              <label class="glass-card" style="padding: 18px; cursor: pointer; display: flex; align-items: center; gap: 12px;">
+                <input type="radio" name="project_scope" value="landing" data-price="250" data-days="5" checked>
+                <div>
+                  <div style="font-weight: 700;">Landing Page (Promo)</div>
+                  <div style="font-size: 0.8rem; color: var(--text-dim);">Tezkor & Yuqori konversiya</div>
+                </div>
+              </label>
+
+              <label class="glass-card" style="padding: 18px; cursor: pointer; display: flex; align-items: center; gap: 12px;">
+                <input type="radio" name="project_scope" value="webapp" data-price="750" data-days="15">
+                <div>
+                  <div style="font-weight: 700;">Full Web App / SaaS</div>
+                  <div style="font-size: 0.8rem; color: var(--text-dim);">To'liq avtomatlashtirilgan</div>
+                </div>
+              </label>
+
+              <label class="glass-card" style="padding: 18px; cursor: pointer; display: flex; align-items: center; gap: 12px;">
+                <input type="radio" name="project_scope" value="enterprise" data-price="1500" data-days="30">
+                <div>
+                  <div style="font-weight: 700;">Katta Korporativ Tizim</div>
+                  <div style="font-size: 0.8rem; color: var(--text-dim);">Mikroservislar & Yuqori yuklama</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Feature Addons -->
+          <div style="margin-bottom: 36px;">
+            <label style="display: block; font-weight: 700; margin-bottom: 14px; font-size: 1.05rem;">2. Qo'shimcha imkoniyatlar:</label>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+              <label class="glass-card" style="padding: 14px; cursor: pointer; display: flex; align-items: center; gap: 10px;">
+                <input type="checkbox" data-price="120" data-days="3">
+                <span style="font-size: 0.9rem;">🎨 3D WebGL & Maxsus Animatsiyalar (+$120)</span>
+              </label>
+              <label class="glass-card" style="padding: 14px; cursor: pointer; display: flex; align-items: center; gap: 10px;">
+                <input type="checkbox" data-price="150" data-days="3">
+                <span style="font-size: 0.9rem;">💳 To'lov Tizimlari (Payme/Click/Stripe) (+$150)</span>
+              </label>
+              <label class="glass-card" style="padding: 14px; cursor: pointer; display: flex; align-items: center; gap: 10px;">
+                <input type="checkbox" data-price="180" data-days="4">
+                <span style="font-size: 0.9rem;">🤖 AI Chatbot / Integratsiya (+$180)</span>
+              </label>
+              <label class="glass-card" style="padding: 14px; cursor: pointer; display: flex; align-items: center; gap: 10px;">
+                <input type="checkbox" data-price="80" data-days="2">
+                <span style="font-size: 0.9rem;">⚡ 95+ PageSpeed & SEO Sozlash (+$80)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Calculation Result Bar -->
+          <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid var(--border-glow); border-radius: 20px; padding: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div>
+              <div style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Taxminiy Byudjet</div>
+              <div id="estimated-price-val" style="font-size: 2.2rem; font-weight: 800; color: var(--secondary);">$450</div>
+            </div>
+
+            <div>
+              <div style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Taxminiy Muddat</div>
+              <div id="estimated-days-val" style="font-size: 2.2rem; font-weight: 800; color: var(--accent);">8 kun</div>
+            </div>
+
+            <a href="contact.html" class="btn btn-primary btn-magnetic" style="padding: 14px 28px;">
+              Shu loyihani boshlash 🚀
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 16px;">
+            <div class="logo-badge">M</div>
+            <div class="logo-text">Muzaffar<span>.dev</span></div>
+          </a>
+          <p>Zamonaviy texnologiyalar, yuqori sifatli kod va jozibador 3D animatsiyalar bilan mukammal web platformalar yaratuvchi muhandis.</p>
+          <div class="social-links">
+            <a href="https://github.com" target="_blank" class="social-icon" title="GitHub">🐙</a>
+            <a href="https://t.me" target="_blank" class="social-icon" title="Telegram">✈️</a>
+            <a href="https://linkedin.com" target="_blank" class="social-icon" title="LinkedIn">💼</a>
+            <a href="mailto:muzaffar.dev@gmail.com" class="social-icon" title="Email">✉️</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Sahifalar</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Bosh sahifa</a></li>
+            <li><a href="about.html">Men haqimda</a></li>
+            <li><a href="skills.html">Ko'nikmalar</a></li>
+            <li><a href="projects.html">Loyihalar</a></li>
+            <li><a href="experience.html">Tajriba</a></li>
+            <li><a href="contact.html">Aloqa</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Xizmatlar</h4>
+          <ul class="footer-links">
+            <li><a href="skills.html">Fullstack Web App</a></li>
+            <li><a href="skills.html">UI/UX & 3D WebGL</a></li>
+            <li><a href="skills.html">REST & GraphQL API</a></li>
+            <li><a href="skills.html">Database Arxitektura</a></li>
+            <li><a href="skills.html">SEO & Performance</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Tezkor Aloqa</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Toshkent, O'zbekiston (UTC+5)</p>
+          <p style="color: var(--secondary); font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 8px;">muzaffar.dev@gmail.com</p>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">+998 (90) 123-45-67</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Muzaffar. Barcha huquqlar himoyalangan.</div>
+        <div style="display: flex; gap: 20px;">
+          <span>Mukammal 3D & Fon Animatsiyalari</span>
+          <span>⚡ High-Performance Architecture</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-control-dock">
+    <div class="bg-switcher-card" id="bg-switcher-dock">
+      <div class="bg-switcher-title">
+        <span>🎨 Fon Animatsiyasi (3 xil)</span>
+      </div>
+      <div class="bg-switcher-options">
+        <button class="bg-mode-btn active" data-mode="neural-mesh">
+          <span>🌌</span> Neyron Tarmoq
+        </button>
+        <button class="bg-mode-btn" data-mode="cyber-matrix">
+          <span>⚡</span> Kiberpank
+        </button>
+        <button class="bg-mode-btn" data-mode="aurora-liquid">
+          <span>🌊</span> Aura To'lqin
+        </button>
+      </div>
+    </div>
+    <button class="dock-trigger-btn" id="dock-trigger" title="Fon animatsiyasini almashtirish">
+      ⚙️
+    </button>
+  </div>
+
+  <script src="assets/js/background-engine.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/interactive-features.js"></script>
+</body>
+</html>

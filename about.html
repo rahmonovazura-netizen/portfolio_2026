@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Men Haqimda | Muzaffar - Fullstack & Creative Engineer</title>
+  <meta name="description" content="Muzaffar haqida batafsil ma'lumot, uning falsafasi, qadriyatlari, bosib o'tgan yo'li va shaxsiy loyihalari.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/backgrounds.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body class="theme-neural-mesh">
+  <div id="scroll-progress"></div>
+  <div id="cursor-glow"></div>
+
+  <div id="background-stage">
+    <canvas id="bg-canvas"></canvas>
+    <div id="matched-elements-layer"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">M</div>
+        <div class="logo-text">Muzaffar<span>.dev</span></div>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Bosh sahifa</a></li>
+        <li><a href="about.html" class="nav-link active">Men haqimda</a></li>
+        <li><a href="skills.html" class="nav-link">Ko'nikmalar</a></li>
+        <li><a href="projects.html" class="nav-link">Loyihalar</a></li>
+        <li><a href="experience.html" class="nav-link">Tajriba</a></li>
+        <li><a href="contact.html" class="nav-link">Aloqa</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="sound-toggle-btn" title="Ovozni yoqish / o'chirish">🔊</button>
+        <a href="contact.html" class="btn btn-primary" style="padding: 9px 20px; font-size: 0.9rem;">Hamkorlik</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menyu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       SECTION 1: ABOUT HERO & MISSION STATEMENT
+       ========================================== -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="hero-breadcrumbs reveal-fade-down">
+        <a href="index.html">Bosh sahifa</a> <span>/</span> <span>Men haqimda</span>
+      </div>
+      <span class="section-tag reveal-fade-up">Shaxsiy Profil</span>
+      <h1 class="section-title reveal-fade-up delay-1">Kod, Kreativlik va Innovatsiya</h1>
+      <p class="section-desc reveal-fade-up delay-2">
+        Men har bir loyihaga nafaqat dasturchi, balki biznesingiz muammosini hal qiluvchi muhandis sifatida yondashaman.
+      </p>
+
+      <div class="glass-card glow-border reveal-scale delay-3" style="margin-top: 48px; padding: 48px; text-align: left;">
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center;" class="about-hero-grid">
+          <div style="text-align: center;">
+            <div style="width: 180px; height: 180px; margin: 0 auto; border-radius: 28px; background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent)); padding: 4px; box-shadow: 0 0 35px var(--primary-glow);">
+              <div style="width: 100%; height: 100%; border-radius: 24px; background: #0c1020; display: flex; align-items: center; justify-content: center; font-size: 5rem;">
+                🚀
+              </div>
+            </div>
+            <h3 style="font-size: 1.4rem; font-weight: 700; margin-top: 18px;">Muzaffar</h3>
+            <p style="color: var(--secondary); font-family: var(--font-mono); font-size: 0.88rem;">Toshkent, O'zbekiston</p>
+          </div>
+
+          <div>
+            <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 16px;">Salom! Men g'oyalarni raqamli reallikka aylantiraman.</h2>
+            <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+              5 yildan ortiq vaqt davomida murakkab veb tizimlar, yuqori yuklamali arxitekturalar hamda interaktiv foydalanuvchi tajribalarini ishlab chiqish bilan shug'ullanaman. Mening asosiy maqsadim — shunchaki ishlaydigan dastur emas, balki biznes o'sishiga xizmat qiladigan, estetik jihatdan benuqson mahsulot yaratish.
+            </p>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+              <div style="background: rgba(255,255,255,0.03); padding: 10px 18px; border-radius: 12px; border: 1px solid var(--border-glass);">
+                <div style="color: var(--text-dim); font-size: 0.78rem;">Status</div>
+                <strong style="color: #10b981;">Freelance & Masofaviy</strong>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 10px 18px; border-radius: 12px; border: 1px solid var(--border-glass);">
+                <div style="color: var(--text-dim); font-size: 0.78rem;">Til ko'nikmalari</div>
+                <strong>O'zbek, Rus, Ingliz</strong>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 10px 18px; border-radius: 12px; border: 1px solid var(--border-glass);">
+                <div style="color: var(--text-dim); font-size: 0.78rem;">Vaqt zonasi</div>
+                <strong>UTC+5 (Toshkent)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 2: JOURNEY & DEV PHILOSOPHY
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal-fade-up">
+        <span class="section-tag">Yondashuv</span>
+        <h2 class="section-title">Dasturlash Falsafam</h2>
+        <p class="section-desc">Mening ishimga asos bo'lgan va har bir satr kodimda o'z aksini topadigan asosiy ustunlar.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px;">
+        
+        <div class="glass-card tilt-card reveal-fade-up delay-1">
+          <div style="font-size: 2.5rem; margin-bottom: 16px;">💎</div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 10px;">Toza & O'qilishi Oson Kod</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+            SOLID, DRY prinsiplari va to'liq TypeScript qoidalari asosida yozilgan kod kelajakda tizimni kengaytirish va yangi jamoa a'zolari qo'shilishini 10 barobar osonlashtiradi.
+          </p>
+        </div>
+
+        <div class="glass-card tilt-card reveal-fade-up delay-2">
+          <div style="font-size: 2.5rem; margin-bottom: 16px;">⚡</div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 10px;">Maksimal Tezlik (Performance)</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+            Har bir millisekund qadrli. Code-splitting, server-side caching, optimallashtirilgan assetlar va toza DOM renderlash orqali Google PageSpeed 95+ ko'rsatkichiga erishaman.
+          </p>
+        </div>
+
+        <div class="glass-card tilt-card reveal-fade-up delay-3">
+          <div style="font-size: 2.5rem; margin-bottom: 16px;">🔒</div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 10px;">Xavfsizlik & Barqarorlik</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+            SQL injection, XSS, CSRF himoyalari, JWT / OAuth2 avtorizatsiya va shifrlangan ma'lumotlar bazasi orqali loyihani kiberxavflardan kafolatli himoya qilaman.
+          </p>
+        </div>
+
+        <div class="glass-card tilt-card reveal-fade-up delay-4">
+          <div style="font-size: 2.5rem; margin-bottom: 16px;">🎯</div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 10px;">Foydalanuvchi Tajribasi (UX)</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+            Murakkab texnologiyalarni oddiy va tushunarli interfeysga aylantirish san'ati. Har bir tugma, harakat va animatsiya foydalanuvchiga zavq ulashishi shart.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 3: CORE VALUES & WORK ETHIC
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal-fade-up">
+        <span class="section-tag">Ish Madaniyati</span>
+        <h2 class="section-title">Ish Jarayonidagi Qadriyatlarim</h2>
+        <p class="section-desc">Mijozlar bilan uzoq muddatli va mustahkam ishonchga asoslangan hamkorlik siri.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 26px;">
+        
+        <div class="glass-card reveal-slide-left delay-1">
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(99, 102, 241, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">🤝</div>
+            <h4 style="font-size: 1.2rem; font-weight: 700;">100% Shaffoflik</h4>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.93rem; line-height: 1.6;">
+            Loyiha bosqichlari, sarflangan vaqt va yuzaga kelgan masalalar bo'yicha har kuni yoki haftalik hisobotlar. Hech qanday yashirin xarajatlar yo'q.
+          </p>
+        </div>
+
+        <div class="glass-card reveal-fade-up delay-2">
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(16, 185, 129, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">⏱️</div>
+            <h4 style="font-size: 1.2rem; font-weight: 700;">Muddatga Qat'iy Sadoqat</h4>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.93rem; line-height: 1.6;">
+            Vaqt — eng qimmatli resurs. Kelishilgan muddat men uchun muqaddas, reja asosida ish olib borilib, loyiha vaqtida topshiriladi.
+          </p>
+        </div>
+
+        <div class="glass-card reveal-slide-right delay-3">
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(236, 72, 153, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">🔄</div>
+            <h4 style="font-size: 1.2rem; font-weight: 700;">Doimiy Qo'llab-quvvatlash</h4>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.93rem; line-height: 1.6;">
+            Loyiha ishga tushgandan so'ng ham uning barqaror ishlashi ta'minlanadi va kelgusidagi yangilanishlar bo'yicha texnik ko'mak ko'rsatiladi.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 4: BEYOND CODING & PASSIONS
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal-fade-up">
+        <span class="section-tag">Qiziqishlar</span>
+        <h2 class="section-title">Koddan Tashqari Hayot</h2>
+        <p class="section-desc">Meni ilhomlantiruvchi va muhandislik salohiyatimni charxlaydigan mashg'ulotlar.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+        
+        <div class="glass-card tilt-card reveal-scale delay-1" style="text-align: center; padding: 32px 20px;">
+          <div style="font-size: 3rem; margin-bottom: 12px;">♟️</div>
+          <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;">Shaxmat & Strategiya</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Bir necha qadam oldindan fikrlash va noan'anaviy yechimlarni topish qobiliyati.</p>
+        </div>
+
+        <div class="glass-card tilt-card reveal-scale delay-2" style="text-align: center; padding: 32px 20px;">
+          <div style="font-size: 3rem; margin-bottom: 12px;">🤖</div>
+          <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;">Sun'iy Intellekt</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">LLM va neyron tarmoqlarni real veb ilovalarga integratsiya qilish bo'yicha tadqiqotlar.</p>
+        </div>
+
+        <div class="glass-card tilt-card reveal-scale delay-3" style="text-align: center; padding: 32px 20px;">
+          <div style="font-size: 3rem; margin-bottom: 12px;">🌐</div>
+          <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;">Open Source</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">GitHub'da boshqa dasturchilar uchun foydali kutubxonalar va vositalar yaratish.</p>
+        </div>
+
+        <div class="glass-card tilt-card reveal-scale delay-4" style="text-align: center; padding: 32px 20px;">
+          <div style="font-size: 3rem; margin-bottom: 12px;">🎧</div>
+          <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;">Elektron Musiqa & UI Tovushlar</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Interaktiv interfeyslar uchun Web Audio sintaksisi asosida tovush dizayni yaratish.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 5: MILESTONES & RECOGNITION
+       ========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal-fade-up">
+        <span class="section-tag">Yutuqlar</span>
+        <h2 class="section-title">Bosib O'tilgan Muhim Bosqichlar</h2>
+        <p class="section-desc">Mening professional o'sishimda muhim burilish nuqtasi bo'lgan natijalar.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+        
+        <div class="glass-card reveal-fade-up delay-1" style="border-left: 4px solid var(--secondary);">
+          <div style="color: var(--secondary); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 6px;">2024 - 2025</div>
+          <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;">Top Fullstack Freelancer</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Xalqaro platformalarda 100% ijobiy sharhlar bilan 30 dan ortiq yirik loyihalar yetkazildi.</p>
+        </div>
+
+        <div class="glass-card reveal-fade-up delay-2" style="border-left: 4px solid var(--primary);">
+          <div style="color: var(--primary); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 6px;">2023</div>
+          <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;">Hackathon G'olibi</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">AI va FinTech yo'nalishidagi 48 soatlik marafonida eng yaxshi arxitektura bo'yicha 1-o'rin.</p>
+        </div>
+
+        <div class="glass-card reveal-fade-up delay-3" style="border-left: 4px solid var(--accent);">
+          <div style="color: var(--accent); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 6px;">2022</div>
+          <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;">AWS & Cloud Sertifikatlari</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Serverless texnologiyalar va bulutli tizimlarni boshqarish bo'yicha professional sertifikatlar.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 6: INTERACTIVE FAQ ACCORDION
+       ========================================== -->
+  <section class="section" style="padding-bottom: 120px;">
+    <div class="container">
+      <div class="section-header reveal-fade-up">
+        <span class="section-tag">Savol-Javob</span>
+        <h2 class="section-title">Ko'p Beriladigan Savollar</h2>
+        <p class="section-desc">Mijozlar va hamkorlar tomonidan eng ko'p so'raladigan savollarga aniq javoblar.</p>
+      </div>
+
+      <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
+        
+        <div class="glass-card faq-item reveal-fade-up delay-1" style="padding: 22px 28px; cursor: pointer;">
+          <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 1.15rem; font-weight: 700;">Loyiha ustida ishlash qanday tartibda boshlanadi?</h4>
+            <span style="font-size: 1.4rem; color: var(--secondary);">+</span>
+          </div>
+          <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease;">
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-top: 14px;">
+              Dastlab qisqa suhbat orqali loyihaning talablari va maqsadlarini aniqlab olamiz. So'ngra texnik topshiriq (TT), aniq muddat va byudjet belgilanadi. Oldindan kelishilgan shartnoma asosida ish bosqichma-bosqich boshlanadi.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-card faq-item reveal-fade-up delay-2" style="padding: 22px 28px; cursor: pointer;">
+          <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 1.15rem; font-weight: 700;">Tayyor bo'lgan veb-sayt mobil telefonlarda qanday ko'rinadi?</h4>
+            <span style="font-size: 1.4rem; color: var(--secondary);">+</span>
+          </div>
+          <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease;">
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-top: 14px;">
+              Barcha loyihalar "Mobile-First" tamoyili bo'yicha tayyorlanadi. Har qanday o'lchamdagi ekranlarda — iPhone, Android, iPad yoki katta 4K monitorlarda interfeys birdek jozibador va moslashuvchan ko'rinadi.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-card faq-item reveal-fade-up delay-3" style="padding: 22px 28px; cursor: pointer;">
+          <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 1.15rem; font-weight: 700;">To'lov shartlari va kafolatlar qanday?</h4>
+            <span style="font-size: 1.4rem; color: var(--secondary);">+</span>
+          </div>
+          <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease;">
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-top: 14px;">
+              Odatda to'lov 2 yoki 3 bosqichda (oldindan 30-50%, qolgani topshirilganda) amalga oshiriladi. Loyiha topshirilgandan keyin 30 kun davomida bepul kafolatli texnik ko'mak taqdim etiladi.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-card faq-item reveal-fade-up delay-4" style="padding: 22px 28px; cursor: pointer;">
+          <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 1.15rem; font-weight: 700;">Loyiha manba kodlari kimga tegishli bo'ladi?</h4>
+            <span style="font-size: 1.4rem; color: var(--secondary);">+</span>
+          </div>
+          <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease;">
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-top: 14px;">
+              Loyiha yakunlangach barcha manba kodlari, ma'lumotlar bazasi va server huquqlari 100% buyurtmachiga topshiriladi. Kod to'liq hujjatlashtirilgan bo'ladi.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 16px;">
+            <div class="logo-badge">M</div>
+            <div class="logo-text">Muzaffar<span>.dev</span></div>
+          </a>
+          <p>Zamonaviy texnologiyalar, yuqori sifatli kod va jozibador 3D animatsiyalar bilan mukammal web platformalar yaratuvchi muhandis.</p>
+          <div class="social-links">
+            <a href="https://github.com" target="_blank" class="social-icon" title="GitHub">🐙</a>
+            <a href="https://t.me" target="_blank" class="social-icon" title="Telegram">✈️</a>
+            <a href="https://linkedin.com" target="_blank" class="social-icon" title="LinkedIn">💼</a>
+            <a href="mailto:muzaffar.dev@gmail.com" class="social-icon" title="Email">✉️</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Sahifalar</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Bosh sahifa</a></li>
+            <li><a href="about.html">Men haqimda</a></li>
+            <li><a href="skills.html">Ko'nikmalar</a></li>
+            <li><a href="projects.html">Loyihalar</a></li>
+            <li><a href="experience.html">Tajriba</a></li>
+            <li><a href="contact.html">Aloqa</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Xizmatlar</h4>
+          <ul class="footer-links">
+            <li><a href="skills.html">Fullstack Web App</a></li>
+            <li><a href="skills.html">UI/UX & 3D WebGL</a></li>
+            <li><a href="skills.html">REST & GraphQL API</a></li>
+            <li><a href="skills.html">Database Arxitektura</a></li>
+            <li><a href="skills.html">SEO & Performance</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Tezkor Aloqa</h4>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px;">Toshkent, O'zbekiston (UTC+5)</p>
+          <p style="color: var(--secondary); font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 8px;">muzaffar.dev@gmail.com</p>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">+998 (90) 123-45-67</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Muzaffar. Barcha huquqlar himoyalangan.</div>
+        <div style="display: flex; gap: 20px;">
+          <span>Mukammal 3D & Fon Animatsiyalari</span>
+          <span>⚡ High-Performance Architecture</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-control-dock">
+    <div class="bg-switcher-card" id="bg-switcher-dock">
+      <div class="bg-switcher-title">
+        <span>🎨 Fon Animatsiyasi (3 xil)</span>
+      </div>
+      <div class="bg-switcher-options">
+        <button class="bg-mode-btn active" data-mode="neural-mesh">
+          <span>🌌</span> Neyron Tarmoq
+        </button>
+        <button class="bg-mode-btn" data-mode="cyber-matrix">
+          <span>⚡</span> Kiberpank
+        </button>
+        <button class="bg-mode-btn" data-mode="aurora-liquid">
+          <span>🌊</span> Aura To'lqin
+        </button>
+      </div>
+    </div>
+    <button class="dock-trigger-btn" id="dock-trigger" title="Fon animatsiyasini almashtirish">
+      ⚙️
+    </button>
+  </div>
+
+  <script src="assets/js/background-engine.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/interactive-features.js"></script>
+</body>
+</html>
